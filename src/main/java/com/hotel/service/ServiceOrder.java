@@ -4,6 +4,7 @@ import com.hotel.model.Reservation;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import com.hotel.model.ServiceOrderStatus;
 
 public class ServiceOrder {
 

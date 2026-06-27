@@ -1,5 +1,6 @@
 package com.hotel.model;
 
+import com.hotel.exception.BusinessException;
 import lombok.Getter;
 import java.util.UUID;
 
