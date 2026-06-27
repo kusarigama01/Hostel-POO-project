@@ -19,5 +19,3 @@ public class Address {
         return street + ", " + postalCode + " " + city + ", " + country;
     }
 }
-
-
