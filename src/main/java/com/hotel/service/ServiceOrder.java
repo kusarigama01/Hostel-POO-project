@@ -1,13 +1,13 @@
 package com.hotel.service;
 
 import com.hotel.model.Reservation;
+import com.hotel.model.ServiceOrderStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
-import com.hotel.model.ServiceOrderStatus;
 
 public class ServiceOrder {
-
     private UUID id;
     private Reservation reservation;
     private LocalDateTime orderDate;
@@ -26,11 +26,8 @@ public class ServiceOrder {
 
     public BigDecimal getTotalPrice() { return totalPrice; }
     public boolean isAvailable() { return status == ServiceOrderStatus.PENDING; }
-
     public UUID getId() { return id; }
-
     public Reservation getReservation() { return reservation; }
-
     public LocalDateTime getOrderDate() { return orderDate; }
     public int getQuantity() { return quantity; }
     public ServiceOrderStatus getStatus() { return status; }
@@ -40,4 +37,12 @@ public class ServiceOrder {
     }
 
     public void setStatus(ServiceOrderStatus status) { this.status = status; }
+
+    public void markOrdered() {
+        this.status = ServiceOrderStatus.ORDERED;
+    }
+
+    public void markDelivered() {
+        this.status = ServiceOrderStatus.DELIVERED;
+    }
 }

@@ -23,7 +23,7 @@ public class DateRange {
     }
 
     public boolean overlaps(DateRange other) {
-        return !this.startDate.isAfter(other.getEndDate()) && !other.getStartDate().isAfter(this.endDate);
+        return this.startDate.isBefore(other.getEndDate()) && other.getStartDate().isBefore(this.endDate);
     }
 
     public long duration() {

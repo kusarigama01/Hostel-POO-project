@@ -1,6 +1,6 @@
 package com.hotel.service;
 
-import com.hotel.model.PaymentException;
+import com.hotel.exception.ServiceOrderException;
 import com.hotel.model.Reservation;
 
 import java.math.BigDecimal;
@@ -25,7 +25,7 @@ public class ServiceReservationManagement {
         Objects.requireNonNull(reservation, "reservation must not be null");
         Objects.requireNonNull(service, "service must not be null");
         if (!service.isActive()) {
-            throw new PaymentException(UUID.randomUUID(), "Inactive services cannot be ordered");
+            throw new ServiceOrderException("Service '" + service.getName() + "' is inactive and cannot be ordered");
         }
         ServiceOrder order = new ServiceOrder(reservation, service, quantity);
         orders.add(order);

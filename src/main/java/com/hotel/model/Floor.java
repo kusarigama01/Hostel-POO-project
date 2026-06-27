@@ -56,4 +56,19 @@ public class Floor {
         }
         return room;
     }
+
+    public Room removeRoom(UUID roomId) {
+        Objects.requireNonNull(roomId, "roomId must not be null");
+        Room target = null;
+        for (Room room : rooms) {
+            if (room.getId().equals(roomId)) {
+                target = room;
+                break;
+            }
+        }
+        if (target != null) {
+            rooms.remove(target);
+        }
+        return target;
+    }
 }
