@@ -12,10 +12,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-// NOTE: the diagram names this class "Hotel"; the code (consistently, across
-// every file) names it "Hostel". Everything below keeps the existing name
-// since renaming it would mean touching every other class too — but it's
-// worth confirming which one you actually want before this goes further.
 public class Hostel {
     private final UUID id;
     private final String name;
