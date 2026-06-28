@@ -1,17 +1,10 @@
 package com.hotel.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Invoice {
     private UUID id;
     private String invoiceNumber;
@@ -19,6 +12,17 @@ public class Invoice {
     private BigDecimal totalAmount;
     private InvoiceStatus status;
     private Reservation reservation;
+
+
+    public Invoice(UUID id, String invoiceNumber, LocalDate issueDate, BigDecimal totalAmount,
+                   InvoiceStatus status, Reservation reservation) {
+        this.id = id;
+        this.invoiceNumber = invoiceNumber;
+        this.issueDate = issueDate;
+        this.totalAmount = totalAmount;
+        this.status = status;
+        this.reservation = reservation;
+    }
 
     public void generate() {
         this.id = UUID.randomUUID();
@@ -37,4 +41,22 @@ public class Invoice {
     public void markAsPaid() {
         this.status = InvoiceStatus.PAID;
     }
+
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
+
+    public String getInvoiceNumber() { return invoiceNumber; }
+    public void setInvoiceNumber(String invoiceNumber) { this.invoiceNumber = invoiceNumber; }
+
+    public LocalDate getIssueDate() { return issueDate; }
+    public void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
+
+    public BigDecimal getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(BigDecimal totalAmount) { this.totalAmount = totalAmount; }
+
+    public InvoiceStatus getStatus() { return status; }
+    public void setStatus(InvoiceStatus status) { this.status = status; }
+
+    public Reservation getReservation() { return reservation; }
+    public void setReservation(Reservation reservation) { this.reservation = reservation; }
 }

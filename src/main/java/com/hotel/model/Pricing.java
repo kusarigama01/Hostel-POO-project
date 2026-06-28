@@ -1,21 +1,24 @@
 package com.hotel.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Pricing {
     private UUID id;
     private RoomType roomType;
     private BigDecimal basePrice;
     private LocalDate validFrom;
     private LocalDate validTo;
+
+
+    public Pricing(UUID id, RoomType roomType, BigDecimal basePrice, LocalDate validFrom, LocalDate validTo) {
+        this.id = id;
+        this.roomType = roomType;
+        this.basePrice = basePrice;
+        this.validFrom = validFrom;
+        this.validTo = validTo;
+    }
 
     // Vérifie si la date est comprise entre validFrom (inclus) et validTo (inclus)
     public boolean isValid(LocalDate date) {
@@ -32,4 +35,19 @@ public class Pricing {
         }
         return BigDecimal.ZERO;
     }
+
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
+
+    public RoomType getRoomType() { return roomType; }
+    public void setRoomType(RoomType roomType) { this.roomType = roomType; }
+
+    public BigDecimal getBasePrice() { return basePrice; }
+    public void setBasePrice(BigDecimal basePrice) { this.basePrice = basePrice; }
+
+    public LocalDate getValidFrom() { return validFrom; }
+    public void setValidFrom(LocalDate validFrom) { this.validFrom = validFrom; }
+
+    public LocalDate getValidTo() { return validTo; }
+    public void setValidTo(LocalDate validTo) { this.validTo = validTo; }
 }
