@@ -11,6 +11,8 @@ public class Payment {
     private PaymentMethod method;
     private PaymentStatus status;
 
+    public Payment() {
+    }
 
     public Payment(UUID id, BigDecimal amount, LocalDateTime paymentDate, PaymentMethod method, PaymentStatus status) {
         this.id = id;

@@ -11,6 +11,8 @@ public class Pricing {
     private LocalDate validFrom;
     private LocalDate validTo;
 
+    public Pricing() {
+    }
 
     public Pricing(UUID id, RoomType roomType, BigDecimal basePrice, LocalDate validFrom, LocalDate validTo) {
         this.id = id;
@@ -20,7 +22,6 @@ public class Pricing {
         this.validTo = validTo;
     }
 
-    // Vérifie si la date est comprise entre validFrom (inclus) et validTo (inclus)
     public boolean isValid(LocalDate date) {
         if (date == null || validFrom == null || validTo == null) {
             return false;
@@ -28,7 +29,6 @@ public class Pricing {
         return !date.isBefore(validFrom) && !date.isAfter(validTo);
     }
 
-    // Retourne le prix si la date est valide, sinon on peut lever une exception ou retourner ZERO
     public BigDecimal getPriceFor(LocalDate date) {
         if (isValid(date)) {
             return this.basePrice;
